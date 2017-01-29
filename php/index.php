@@ -1,5 +1,7 @@
 <?php
 echo "Hello";
+$d = array('foo' => 'bar', 'baz' => 'long');
+echo json_encode($d);
 ?>
 
 <!DOCTYPE html>

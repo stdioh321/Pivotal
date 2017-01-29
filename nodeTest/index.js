@@ -18,19 +18,25 @@
 // });
 
 
-// app.listen(8080, function() {
-//     console.log('Example app listening on port 3000!');
-// });
+// // app.listen(8080, function() {
+// //     console.log('Example app listening on port 3000!');
+// // });
 
+// app.listen(port, ip);
 
-var port = (process.env.PORT || 8000);
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
+    ;
+
 
 var http = require('http');
 http.createServer(function (req, res) {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.write(JSON.stringify({ "id": 123456, "name": "Jaozinho" }));
     res.end();
-}).listen(port);
+}).listen(port, ip);
+
+
 
 
 // console.log("Hello");
