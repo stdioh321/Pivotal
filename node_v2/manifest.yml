@@ -1,0 +1,10 @@
+applications:
+- name: node_v2
+  instances: 1
+  memory: 128M
+  disk_quota: 512M
+  routes:
+  - route: manic-lint.local.pcfdev.io
+  services:
+  - node-logs
+  stack: cflinuxfs2
